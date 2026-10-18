@@ -45,9 +45,11 @@ body {
   /* The letter spacing also follows the last letter: shift it back so the
      word sits truly centred. */
   margin-right: calc(-1 * var(--tracking));
-  /* Drop the space under the baseline (capitals have no descenders) so the
-     letters touch the horizon. */
-  margin-bottom: -0.13em;
+  /* Space under the baseline; capitals have no descenders. Dropping it lets
+     the letters touch the horizon. Tune this one value: the word and its
+     reflection both follow it. */
+  --baseline-gap: 0.125em;
+  margin-bottom: calc(-1 * var(--baseline-gap));
 }
 
 /* The reflection: the same word flipped, fading into the floor. The "/ ''"
@@ -57,8 +59,8 @@ body {
   content: attr(data-text) / "";
   position: absolute;
   inset: 100% 0 auto;
-  /* Mirror on the baseline: twice the gap pulled in above. */
-  margin-top: -0.26em;
+  /* Mirror on the baseline: the flip doubles the gap, so pull it in twice. */
+  margin-top: calc(-2 * var(--baseline-gap));
   transform: scaleY(-1);
   /* Faint at 38.2%, and it fades away over 61.8% of its height. */
   opacity: 0.382;
