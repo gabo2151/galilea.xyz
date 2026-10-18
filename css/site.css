@@ -1,0 +1,79 @@
+/* Every proportion comes from the golden ratio, phi = 1.618:
+   1/phi = 61.8% and 1/phi^2 = 38.2%. */
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: #000;
+  /* The glow above the horizon fades out at the golden section of the
+     sky: 61.8% + 38.2% x 38.2% = 76.4% from the bottom. */
+  background: linear-gradient(0deg, #000 61.8%, #1f2124 61.8%, #000 76.4%);
+  color: #c0c0c0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+/* The horizon cuts the height at the golden section: 38.2% from the top,
+   61.8% from the bottom. The word stands on it, its reflection lies on
+   the floor below and the footer rests at the bottom. */
+#app {
+  --horizon: 38.2%;
+  display: grid;
+  grid-template-rows: var(--horizon) 1fr auto;
+  height: 100%;
+}
+
+.stage {
+  display: grid;
+  justify-items: center;
+  align-items: end;
+}
+
+.site-title {
+  position: relative;
+  margin: 0;
+  /* Letters spaced 1/phi^2 of the size apart; the word then spans about
+     6em, so 10.3vw makes it 61.8% of the screen width. */
+  --tracking: 0.382em;
+  font-size: clamp(2.5rem, 10.3vw, 10rem);
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: var(--tracking);
+  /* The letter spacing also follows the last letter: shift it back so the
+     word sits truly centred. */
+  margin-right: calc(-1 * var(--tracking));
+  /* Drop the space under the baseline (capitals have no descenders) so the
+     letters touch the horizon. */
+  margin-bottom: -0.13em;
+}
+
+/* The reflection: the same word flipped, fading into the floor. The "/ ''"
+   alt text keeps screen readers from reading it twice. */
+.site-title::after {
+  content: attr(data-text);
+  content: attr(data-text) / "";
+  position: absolute;
+  inset: 100% 0 auto;
+  /* Mirror on the baseline: twice the gap pulled in above. */
+  margin-top: -0.26em;
+  transform: scaleY(-1);
+  /* Faint at 38.2%, and it fades away over 61.8% of its height. */
+  opacity: 0.382;
+  filter: blur(1px);
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 38.2%, #000);
+  mask-image: linear-gradient(to bottom, transparent 38.2%, #000);
+}
+
+.site-footer {
+  grid-row: 3;
+  padding: 1rem;
+  text-align: center;
+  /* Quiet, yet still readable: about 4.7:1 on black. */
+  color: #777;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+}

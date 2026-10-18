@@ -9,33 +9,16 @@
          AdMob can still read app-ads.txt. -->
     <meta name="robots" content="noindex, nofollow">
     <meta name="color-scheme" content="dark">
-    <style>
-      html,
-      body {
-        height: 100%;
-        margin: 0;
-      }
-
-      body {
-        display: grid;
-        place-items: center;
-        background: #1f2124;
-        color: #c0c0c0;
-        font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-      }
-
-      h1 {
-        margin: 0;
-        font-size: clamp(2.5rem, 12vw, 7rem);
-        font-weight: 300;
-        letter-spacing: 0.3em;
-        /* The letter spacing also follows the last letter: shift it back
-           so the word sits truly centred. */
-        margin-right: -0.3em;
-      }
-    </style>
+    <link rel="stylesheet" href="css/site.css">
+    <script type="module" src="js/main.js"></script>
   </head>
   <body>
-    <h1>GALILEA</h1>
+    <div id="app">
+      <!-- Shown before Vue mounts, or without JavaScript; Vue replaces it.
+           Keep the title in sync with js/domain/site.js. -->
+      <main class="stage">
+        <h1 class="site-title" data-text="GALILEA">GALILEA</h1>
+      </main>
+    </div>
   </body>
 </html>
