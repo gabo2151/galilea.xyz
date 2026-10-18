@@ -1,0 +1,12 @@
+{
+  "name": "galilea.xyz",
+  "private": true,
+  "description": "Personal site, served as plain static files: no build step, no dependencies.",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
