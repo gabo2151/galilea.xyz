@@ -70,6 +70,86 @@ body {
   mask-image: linear-gradient(to bottom, transparent 38.2%, #000);
 }
 
+/* A longer name: letters 1/phi^3 apart, and a size that keeps the word
+   near 61.8% of the screen width (about 13.7em wide). */
+.site-title--long {
+  --tracking: 0.236em;
+  font-size: clamp(1.25rem, 4.5vw, 4.5rem);
+}
+
+/* An app page's links rest on the floor, past the reflection. */
+.app-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 6rem 1rem 0;
+}
+
+.store-button {
+  padding: 0.75rem 1.5rem;
+  border: 1px solid #555;
+  border-radius: 2rem;
+  color: #c0c0c0;
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.store-button:hover,
+.store-button:focus-visible {
+  border-color: #c0c0c0;
+  color: #fff;
+}
+
+.quiet-link {
+  /* Same quiet grey as the footer, about 4.7:1 on black. */
+  color: #777;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+}
+
+.quiet-link:hover,
+.quiet-link:focus-visible {
+  color: #c0c0c0;
+}
+
+/* The apps index: a quiet box on the floor, past the reflection. */
+.app-list {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 6rem 1rem 0;
+}
+
+/* A golden rectangle: as tall as 1/phi of its width. A longer list grows
+   past it instead of overflowing. */
+.app-list ul {
+  box-sizing: border-box;
+  width: min(100%, 20rem);
+  aspect-ratio: 1.618 / 1;
+  margin: 0;
+  padding: 0.5rem 0;
+  border: 1px solid #333;
+  border-radius: 0.75rem;
+  list-style: none;
+}
+
+.app-list a {
+  display: block;
+  padding: 0.75rem 1.25rem;
+  color: #c0c0c0;
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+}
+
+.app-list a:hover,
+.app-list a:focus-visible {
+  color: #fff;
+}
+
 .site-footer {
   grid-row: 3;
   padding: 1rem;
