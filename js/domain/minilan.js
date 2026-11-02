@@ -4,7 +4,12 @@
  */
 export const minilan = Object.freeze({
   title: 'POCKET LAN PARTY',
-  storeUrl:
-    'https://play.google.com/store/apps/details?id=xyz.galilea.games.minilan',
+  /** One button per store, in this order. @type {readonly StoreListing[]} */
+  stores: Object.freeze([
+    {
+      store: 'play',
+      url: 'https://play.google.com/store/apps/details?id=xyz.galilea.games.minilan',
+    },
+  ]),
   privacyUrl: '/apps/minilan/privacy-policy/',
 });

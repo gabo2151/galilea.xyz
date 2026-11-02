@@ -87,6 +87,9 @@ body {
 }
 
 .store-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   padding: 0.75rem 1.5rem;
   border: 1px solid #555;
   border-radius: 2rem;
@@ -95,6 +98,11 @@ body {
   letter-spacing: 0.1em;
   text-decoration: none;
   transition: border-color 0.2s, color 0.2s;
+}
+
+.store-icon {
+  width: 1.125rem;
+  height: 1.125rem;
 }
 
 .store-button:hover,

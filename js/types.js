@@ -13,3 +13,16 @@
  * @typedef {Object} Clock
  * @property {() => Date} now - Returns the current date and time.
  */
+
+/**
+ * A store an app can be listed in: Google Play, Apple's App Store or
+ * Huawei AppGallery.
+ * @typedef {'play' | 'appstore' | 'appgallery'} Store
+ */
+
+/**
+ * Where an app can be downloaded.
+ * @typedef {Object} StoreListing
+ * @property {Store} store - Which store.
+ * @property {string} url - The app's listing there.
+ */

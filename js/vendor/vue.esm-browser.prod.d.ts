@@ -7,3 +7,9 @@ export interface App {
 }
 
 export function createApp(rootComponent: object): App;
+
+export interface ComputedRef<T> {
+  readonly value: T;
+}
+
+export function computed<T>(getter: () => T): ComputedRef<T>;
